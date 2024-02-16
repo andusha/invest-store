@@ -1,0 +1,19 @@
+{% extends 'base.html' %}
+
+{% block content %}
+{% set state = {0: ['bg-gray-100', 'не расмотренно'], 1: ['bg-main text-white', 'одобренно'], 2: ['bg-red-500 text-white', 'не одобренно']} %}
+<section class="bg-[#EEF3F4]">
+    <div class="flex items-center justify-center max-w-screen-lg mx-auto md:h-screen p-4">
+        <div class="rounded-lg w-full bg-white shadow">
+            <div class="flex flex-col gap-5 p-4">
+                {% if admin %}
+                <div class=""></div>
+                {% endif %}
+                <h1 class="font-semibold text-3xl">{{statement.title}}</h1>
+                <p class="text-xl">{{statement.text}}</p>
+                <div class="{{state[statement.approve][0]}} text-center text-xl p-4">{{state[statement.approve][1]}}</div>
+            </div>
+        </div>
+    </div>
+</section>
+{% endblock %}

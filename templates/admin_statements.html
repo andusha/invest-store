@@ -1,0 +1,40 @@
+{% extends 'base.html' %}
+{% block head %}
+<script type="text/javascript" src="{{url_for('static', filename='js/statements.js')}}" defer></script>
+<link rel="stylesheet" href="{{url_for('static',filename='dist/css/statements.css')}}">
+<link 
+href="https://unpkg.com/boxicons@2.1.4/css/boxicons.min.css" 
+rel="stylesheet"
+/>
+{% endblock %}
+{% block content %}
+{% set state = {0: ['bg-gray-100', 'не расмотренно'], 1: ['bg-main text-white', 'одобренно'], 2: ['bg-red-500 text-white', 'не одобренно']} %}
+<div class="p-4 flex justify-center bg-gray-50 h-screen">
+   <div class="p-4 border-2 bg-gray-50 border-gray-200 border-dashed rounded-lg w-full mx-auto max-w-screen-lg h-min">
+      <div class="flex flex-col gap-4 mb-4">
+           <h1 class="text-3xl text-center">Все Заявления</h1>
+           {% if statements %}
+           {% for statement in statements %}
+           <div class="flex items-center bg-white shadow rounded-lg md:text-lg">
+               <a href="{{url_for('show_statement', id=statement.id)}}" class="w-2/3">
+                   <div class="overflow-hidden p-4 text-center">{{statement.title}}</div>
+                </a>
+                   <div class="{{state[statement.approve][0]}} p-4 rounded-r-lg w-1/3" id="stateToggle">
+                    <button class="text-center w-full btn" id="btn">
+                        <div>{{state[statement.approve][1]}}</div>
+                        <i class="bx bx-chevron-down" id="arrow"></i>
+                      </button>
+                    
+                      <div class="dropdown" id="dropdown" data-id="{{statement.id}}"><button data-flag="1">Одобренно</button><button data-flag="2">Не одобренно</button></div>
+                </div>
+            </div>
+           {% endfor %} 
+           {% endif %}       
+      </div>
+   </div>
+</div>
+{% endblock %}
+
+{% block script %}
+<script type="text/javascript" src="{{url_for('static', filename=js/admin_statements.js)}}"></script>
+{% endblock %}

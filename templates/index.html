@@ -1,0 +1,62 @@
+{% extends 'base.html' %}
+
+{% block content %}
+<section class="bg-[#EEF3F4]">
+    <div class="flex gap-10 max-w-screen-lg mx-auto md:my-5 h-70 md:h-auto">
+        <div class="flex flex-col gap-2 md:gap-5 md:w-1/2 p-4 py-6 lg:py-8">
+            <div class="flex">
+                <img src="{{url_for('static', filename='images/logo.svg')}}" class="h-6 me-3" alt="ИнвестStore Logo" />
+                <span>ИнвестStore</span>
+            </div>
+            <h1 class=" text-base md:text-3xl">Откройте брокерский счёт для инвестиций</h1>
+            <h2 class="text-sm md:text-2xl text-main">Инвестируйте и зарабатывайте на ценных бумагах облигациях и валюте </h2>
+        </div>
+        <img src="{{url_for('static', filename='images/phone.png')}}" class="hidden md:block md:w-1/2" alt="" />
+    </div>
+</section>
+<section class="max-w-screen-lg mx-auto p-4">
+    <h1 class="text-xl md:text-3xl text-center py-4">Какие принципы инвестирования на нашей платформе?</h1>
+    <h2 class="text-main text-center text-base md:text-xl">Мы придерживаемся 5 основных принципов</h2>
+    <div class="flex justify-center my-4 text-xs md:text-lg">
+        <div class="bg-[#9FCA58] rounded-full text-center p-2 z-10 translate-x-5 w-1/2  md:translate-x-7 md:w-1/3">Для инвесторов</div>
+        <div class= "rounded-r-full text-center bg-main p-2 w-1/2 md:w-1/3" >Для заёмщиков</div>
+    </div>
+    <div class="flex gap-8 my-4 md:my-8">
+        <div class="hidden md:w-1/2 md:block">
+            <img src="{{url_for('static', filename='images/men.png')}}">
+        </div>
+        <div class="flex flex-col md:w-1/2 gap-2">
+            <h2 class="font-semibold text-lg">Удобство</h2>
+            <p class="text-balance">Все процессы на нашей платформе проходят онлайн без лишних бумажек и очередей</p>
+            <h2 class="font-semibold text-lg">Скорость</h2>
+            <p class="text-balance">Вы не тратите лишние время на ожидание перевода денег, так же если хотите вывести средства, то можете сделать это в любой момент</p>
+            <h2 class="font-semibold text-lg">Выгода</h2>
+            <p class="text-balance">По итогам 2022 года средняя доходность от инвесторов на платформе составила 21,78% годовых(С учётом НДФЛ).</p>
+            <h2 class="font-semibold text-lg">Cтабильность</h2>
+            <p class="text-balance">Мы тщательно проверяем каждого заёмщика и его проект перед размещением на платформе. Мы оцениваем не только кредитную историю.</p>
+        </div>
+    </div>
+</section>
+<section class="max-w-screen-lg mx-auto p-4">
+    <h1 class="text-center text-xl md:text-3xl py-10">Начните инвестировать уже сегодня</h1>
+    <div class="text-xl md:text-6xl flex items-center justify-between gap-2">
+        <div class="flex flex-col items-center gap-3">
+            <div class="rounded-full border w-fit h-fit px-7 py-5 md:px-14 md:py-11 border-main text-main text-center">1</div>
+            <span class="text-xs max-w-max text-center md:text-xl">Регистрируйтесь на нашем сайте</span>
+        </div>
+        <hr class="bg-main h-0.5 w-full hidden md:-translate-y-8 md:block">
+        <div class="flex flex-col items-center gap-3">
+            <div class="rounded-full border w-fit h-fit px-7 py-5 md:px-14 md:py-11 border-main text-main text-center">2</div>
+            <span class="text-xs max-w-max text-center md:text-xl">Откройте счет онлайн</span>
+        </div>
+        <hr class="bg-main h-0.5 w-full hidden md:-translate-y-8 md:block">
+        <div class="flex flex-col items-center gap-3">
+            <div class="rounded-full border w-fit h-fit px-7 py-5 md:px-14 md:py-11 border-main text-main text-center">3</div>
+            <span class="text-xs max-w-max text-center md:text-xl">Пополняйте счёт без комисси</span>
+        </div>
+    </div>
+    <a href="{{url_for('add_statement')}}" class="py-10 flex items-center justify-center md:w-1/2 md:mx-auto">
+        <button type="button" class="text-black w-svw bg-main text-center focus:ring-4 focus:ring-blue-300 rounded-lg text-xl md:text-3xl px-5 py-2.5 md:py-3.5 me-2 mb-2">Продолжить</button>
+    </a>
+</section>
+{% endblock %}
