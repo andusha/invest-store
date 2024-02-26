@@ -119,7 +119,7 @@ def register():
                 flash("Вы успешно зарегистрированы", "success")
                 return redirect(url_for('login'))
             else:
-                flash("Ошибка при добавлении в БД", "error")
+                flash("Ошибка при регистрации", "error")
 
     return render_template("register.html", title="Регистрация", form=form, is_auth = current_user.is_authenticated)
 
